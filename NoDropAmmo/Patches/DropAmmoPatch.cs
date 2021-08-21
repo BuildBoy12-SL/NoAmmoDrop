@@ -10,6 +10,9 @@ namespace NoDropAmmo.Patches
     using HarmonyLib;
     using InventorySystem;
 
+    /// <summary>
+    /// Prevents ammo from being dropped.
+    /// </summary>
     [HarmonyPatch(typeof(InventoryExtensions), nameof(InventoryExtensions.ServerDropAmmo))]
     internal static class DropAmmoPatch
     {
