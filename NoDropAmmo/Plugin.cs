@@ -16,17 +16,7 @@ namespace NoDropAmmo
     /// </summary>
     public class Plugin : Plugin<Config>
     {
-        private static readonly Plugin InstanceValue = new Plugin();
         private Harmony harmony;
-
-        private Plugin()
-        {
-        }
-
-        /// <summary>
-        /// Gets the only existing instance of the <see cref="Plugin"/> class.
-        /// </summary>
-        public static Plugin Instance { get; } = InstanceValue;
 
         /// <inheritdoc />
         public override void OnEnabled()
@@ -39,7 +29,7 @@ namespace NoDropAmmo
         /// <inheritdoc />
         public override void OnDisabled()
         {
-            harmony?.UnpatchAll();
+            harmony?.UnpatchAll(harmony.Id);
             harmony = null;
             base.OnDisabled();
         }
