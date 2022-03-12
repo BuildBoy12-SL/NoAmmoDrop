@@ -19,6 +19,12 @@ namespace NoDropAmmo
         private Harmony harmony;
 
         /// <inheritdoc />
+        public override string Author => "Build";
+
+        /// <inheritdoc />
+        public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
+
+        /// <inheritdoc />
         public override void OnEnabled()
         {
             harmony = new Harmony($"build.noDropAmmo.{DateTime.UtcNow.Ticks}");
